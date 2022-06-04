@@ -387,6 +387,35 @@ input[type='number'] {
     margin-bottom: 29px;
 }
 
+/* BACK-TO-TOP BUTTON */
+
+.back-to-top {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    z-index: 996;
+    background: #323232;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border-radius: 4px;
+    transition: all 0.4s;
+    cursor: pointer;
+    display: none;
+  }
+  .back-to-top i {
+    font-size: 28px;
+    color: #fff;
+    line-height: 40px;
+  }
+  .back-to-top:hover {
+    background: red;
+    color: #fff;
+  }
+  .back-to-top-show {
+    display: block;
+  }
+
 /* MEDIA */
 @media screen and (max-width: 1201px) {
     .container {
