@@ -161,7 +161,7 @@ body {
 /* TEAM */
 
 .team {
-    height: 745px;    
+    padding-bottom: 155px;
 }
 .block__head {
     text-align: center;
@@ -187,6 +187,7 @@ body {
 }
 .team__inner {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     padding-top: 127px;
 }
@@ -390,7 +391,6 @@ input[type='number'] {
 @media screen and (max-width: 1201px) {
     .container {
         width: 768px;
-        margin: 0;
         padding: 0;
     }   
     .about {
@@ -425,7 +425,6 @@ input[type='number'] {
         padding-top: 100px;
     }
     .provide__inner {
-        flex-direction: column;
         flex-wrap: wrap;
         justify-content: center;
     }
