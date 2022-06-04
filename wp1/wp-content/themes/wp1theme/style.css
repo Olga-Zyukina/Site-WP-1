@@ -6,34 +6,6 @@ Author URI: https://github.com/Olga-Zyukina
 Description: Черно-белая тема на WordPress
 Version: 0.1
 */
-@font-face { 
-    font-family: "HelveticaNeueLTProLt";
-    src: url(../fonts/HelveticaNeueLTProLt.otf) format("opentype");
-}
-@font-face { 
-    font-family: "HelveticaNeueLTProMd";
-    src: url(../fonts/HelveticaNeueLTProMd.otf) format("opentype");
-}
-@font-face { 
-    font-family: "HelveticaNeueLTProRoman";
-    src: url(../fonts/HelveticaNeueLTProRoman.otf) format("opentype");
-}
-@font-face { 
-    font-family: "Merriweather-LightItalic";
-    src: url(../fonts/Merriweather-LightItalic.ttf) format("truetype");
-}
-@font-face { 
-    font-family: "Montserrat-Light";
-    src: url(../fonts/Montserrat-Light.ttf) format("truetype");
-}
-@font-face { 
-    font-family: "Montserrat-Regular";
-    src: url(../fonts/Montserrat-Regular.ttf) format("truetype");
-}
-@font-face { 
-    font-family: "Roboto-Regular";
-    src: url(../fonts/Roboto-Regular.ttf) format("truetype");
-}
 
 /* GENERAL */
 
@@ -79,8 +51,10 @@ body {
 .active a {
     color: #010101;
 }
-.logo {
-    margin: 0 16px;
+.custom-logo {
+    /* min-height: 55px;
+    margin: 0 16px; */
+    margin: 5px 16px 0 16px;
 }
 .header__content {
     text-align: center;
@@ -125,18 +99,15 @@ body {
 /* ABOUT */
 
 .about {
-    height: 1129px;
+    min-height: 1129px;
     padding-top: 128px;
     padding-bottom: 271px;
-    background: url(../img/buildings_white.png) center 100% repeat-x,
-                url(../img/buildings_dark.png) center 100% repeat-x,
-                #1d1d1d;
 }
 .about__inner {
     display: grid;
     grid-template-rows: max-content max-content;
     grid-template-columns: max-content max-content;
-    grid-gap: 178px;
+    gap: 178px;
     place-content: center center;
 }
 .about__item {
@@ -169,7 +140,7 @@ body {
 /* TEAM */
 
 .team {
-    height: 745px;    
+    padding-bottom: 155px;    
 }
 .block__head {
     text-align: center;
@@ -195,6 +166,7 @@ body {
 }
 .team__inner {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     padding-top: 127px;
 }
@@ -246,12 +218,14 @@ body {
 }
 .provide__inner {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     padding-top: 138px;
 }
 .provide__item {
     text-align: center;
     max-width: 335px;
+    padding: 0 40px;
 }
 .provide__item i {
     color: #fff;
@@ -319,14 +293,14 @@ body {
     color: #4b4b4b;
     text-decoration: underline;
 }
-.contact__form {
+.wpcf7-form {
     padding-top: 153px;
     display: flex;
     flex-direction: column;
     max-width: 770px;
     margin: 0 auto;
 }
-.contact__form input {
+.wpcf7-form input {
     height: 52px;
     padding: 20px;
     text-align: center;
@@ -337,13 +311,16 @@ body {
     color: #898888;
     border: 1px solid #999999;
 }
-.contact__name {
+.wpcf7-form .contact__name {
+    width: 100%;
     margin-bottom: 20px; 
 }
-.contact__email {
+.wpcf7-form .contact__email {
+    width: 100%;
     margin-bottom: 20px;
 }
-.contact__number {
+.wpcf7-form .contact__number {
+    width: 100%;
     margin-bottom: 18px;
 }
 input::-webkit-outer-spin-button,
@@ -353,7 +330,8 @@ input::-webkit-inner-spin-button {
 input[type='number'] {
     -moz-appearance: textfield;
 }
-.contact__textarea {
+.wpcf7-form .contact__textarea {
+    width: 100%;
     padding: 22px;
     margin-bottom: 21px;
     height: 195px;
@@ -366,7 +344,8 @@ input[type='number'] {
     color: #898888;
     border: 1px solid #999999;
 }
-.contact__form .contact__button {
+.wpcf7-form .contact__button {
+    width: 100%;
     cursor: pointer;
     padding: 0;
     outline: none;
@@ -393,6 +372,33 @@ input[type='number'] {
     color: #3b3b3b;
     margin-bottom: 29px;
 }
+
+/* BACK-TO-TOP BUTTON */
+
+.back-to-top {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    z-index: 996;
+    background: #5f5e5e;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    transition: all 0.4s;
+    cursor: pointer;
+    display: none;  
+  }
+  .back-to-top img {
+    width: 28px;
+    margin: 6px;
+  }
+  .back-to-top:hover {
+    background: red;
+    color: #fff;
+  }
+  .back-to-top-show {
+    display: block;
+  }
 
 /* MEDIA */
 @media screen and (max-width: 769px) {
@@ -422,7 +428,7 @@ input[type='number'] {
         max-width: 300px;
         margin: 0 30px 40px;
     }
-    .contact__form {
+    .wpcf7-form {
         padding-top: 100px;
     }
     .footer {
@@ -534,4 +540,12 @@ input[type='number'] {
     .provide__inner {
         padding-top: 100px;
     }
+}
+
+/* Слайдер */
+.swiper-container {
+    width: 100%;
+}
+.swiper-button-next, .swiper-button-prev {
+    color: #000;
 }

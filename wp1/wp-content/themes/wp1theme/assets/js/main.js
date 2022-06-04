@@ -1,11 +1,11 @@
 $(document).ready(function() {
     /* Плавная прокрутка меню */
-    $('nav a[href^="#"]').click(function() {
+    $('header a[href^="#"]').click(function() {
         let target = $(this).attr('href');
         $('html, body').animate({
             scrollTop: $(target).offset().top
         },500);
-        $('nav a[href^="#"]').parent().removeClass('active');
+        $('header a[href^="#"]').parent().removeClass('active');
         $(this).parent().addClass('active');
         $('.menu__mobile .menu').toggle(500);
         $('.menu__burger').toggleClass('close');
@@ -16,4 +16,44 @@ $(document).ready(function() {
         $('.menu__mobile .menu').toggle(500);
         $(this).toggleClass('close');
     });
+    /* Слайдер */
+    var swiper = new Swiper('.swiper', {
+      slidesPerView: 3,
+      slidesPerGroup: 3,
+      loop: true,   
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
 });
+
+/* Back-to-top button */
+
+(function() {
+  'use strict';
+
+  function trackScroll() {
+    var scrolled = window.pageYOffset;
+    var coords = document.documentElement.clientHeight;
+
+    if (scrolled > coords) {
+      goTopBtn.classList.add('back-to-top-show');
+    }
+    if (scrolled < coords) {
+      goTopBtn.classList.remove('back-to-top-show');
+    }
+  }
+
+  function backToTop() {
+    if (window.pageYOffset > 0) {
+      window.scrollBy(0, -80);
+      setTimeout(backToTop, 0);
+    }
+  }
+
+  var goTopBtn = document.querySelector('.back-to-top');
+
+  window.addEventListener('scroll', trackScroll);
+  goTopBtn.addEventListener('click', backToTop);
+})();
